@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<myADOProject.Models.Customer>
+
+    <head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+ <style>
+.table{
+    font-family:'Poppins',sans-serif;
+}
+
+.table td{
+    color:darkblue;
+    font-size:16px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.table th{
+    background-color:aqua;
+    font-size:20px;
+}
+
+
+
+</style>
+
+</head>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-1 pt-5">
+
+
+        @if(TempData["Success Message"]!=null){
+            <div class="alert alert-success alert-dismissible">
+                <strong>Success!</strong>
+                @TempData["Success Message"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+
+         }
+
+            <a class="btn btn-sm btn-success m-2" asp-controller="Customer" asp-action="Create">CREATE</a>
+            <table class="table table-bordered">
+                <tr class="text-center">
+                    <th>cid</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>DateofBirth</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>Fullname</th>
+                    <th>EDIT OPERATION</th>
+                    <th>DELETE OPERATION</th>
+
+                </tr>
+
+                <tbody class="border border-3 border-info">
+
+                @foreach(var value in Model)
+                {
+                    <tr class="text-center border-2">
+                        <td>@value.cid</td>
+                        <td>@value.FirstName</td>
+                        <td>@value.LastName</td>
+                        <td>@value.DateofBirth.ToString("yyyy-MM-dd")</td>
+                        <td>@value.Email</td>
+                        <td>@value.Salary</td>
+                        <td>@value.Fullname</td>
+                        <td><a class="btn btn-lg btn-warning" asp-controller="Customer" asp-action="Edit" asp-route-id="@value.cid">EDIT</a></td>
+                        <td><a class="btn btn-lg btn-danger" asp-controller="Customer" asp-action="Delete" asp-route-id="@value.cid">DELETE</a></td>
+
+                    </tr>
+                }
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

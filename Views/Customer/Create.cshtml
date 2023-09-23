@@ -1,0 +1,145 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model myADOProject.Models.Customer
+@{
+}
+<h1>Create Employee Data</h1>
+
+<style>
+    .form-group{
+        color:darkblue;
+        font-size:30px;
+        font-family:Verdana;
+        font-display:auto;
+    }
+
+    .flow-control{
+        font-size:20px;
+        color:blue;
+        font-family:Rockwell;
+    }
+
+    .card-body{
+        border:solid;
+        border-radius:12px;
+    }
+
+    .card-header{
+        border:solid;
+        background:border-box;
+        background-color:aqua;
+    }
+
+    .header{
+        border-radius: 12px;
+    }
+
+    .btn-lg{
+        background-color:aqua;
+        color:darkblue;
+        font-size:20px;
+        border-color:black;
+    }
+
+    body{
+        background-color:deepskyblue;
+    }
+
+    h1{
+        color:white;
+        text-align:center;
+        font-size:60px;
+        font-family:Rockwell;
+    }
+    
+    .form-group input{
+        border-radius:8px;
+        width:90%;
+        text-align:center;   
+        justify-content:center;
+        display:flex;
+    }
+    .form-group span{
+        font-size:17px;
+    }
+
+    .placeholder{
+        font-size:8px;
+        font-family:'Trebuchet MS';
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-2">
+            <div class="header">
+                <div class="card-header ">
+                    <h1 class="text-center text-primary">Add Employee</h1>
+                </div>
+                <div class="card">
+                <div class="card-body">
+                    <h3 class="text-danger text-center">@TempData["error message"]</h3>
+                    <form method="post" asp-action="Create">
+                        <div class="form-group">
+                            
+                        <div class="form-group m-1">
+                            <label asp-for="FirstName"></label>
+                             <input type="text"  asp-for="FirstName" class="flow-control" placeholder="Enter FirstName" />
+                             <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <hr />
+
+                        <div class="form-group">
+                            <label asp-for="LastName" ></label>
+                             <input type="text"  asp-for="LastName"  class="flow-control" placeholder="Enter LastName" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+
+                         </div>
+
+                        <hr />
+
+                        <div class="form-group">
+                            <label asp-for="DateofBirth"></label>
+                             <input type="datetime"   asp-for="DateofBirth" class="flow-control" placeholder="Enter DateofBirth" />
+                              <span asp-validation-for="DateofBirth" class="text-danger"></span>
+
+                         </div>
+
+                        <hr />
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                             <input type="email"  asp-for="Email" class="flow-control" placeholder="Enter Email-ID" />
+                             <span asp-validation-for="Email" class="text-danger"></span>
+
+                         </div>
+
+                        <hr />
+
+                        <div class="form-group">
+                            <label asp-for="Salary"></label>
+                            <input type="text"  asp-for="Salary"  class="flow-control" placeholder="Enter E Salary" />
+                             <span asp-validation-for="Salary" class="text-danger"></span>
+
+                        </div>
+
+                        <div class="form-group m-3">
+                          <input type="submit" value="Submit" class="btn btn-lg btn-success flex-lg-right "  />
+
+                        </div>
+
+                         </div>      
+
+                        
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
